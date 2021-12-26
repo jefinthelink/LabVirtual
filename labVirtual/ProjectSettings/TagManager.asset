@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Burner
   - Fire
+  - Cube
   layers:
   - Default
   - TransparentFX

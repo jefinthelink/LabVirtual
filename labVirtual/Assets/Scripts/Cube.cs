@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Cube : MonoBehaviour
 {
-    private GameObject FirePosition;
+    public GameObject FirePosition;
+    public FireCollider fireCollider;
     private Vector3 initialPosition;
     [SerializeField] private float speed = 1.0f; 
     public bool moveToFire = false;
     public bool moveToInitialPosition = false;
+    public bool isFireState = false;
 
     private void Start()
     {
@@ -16,7 +18,8 @@ public class Cube : MonoBehaviour
     }
     private void SetValues()
     {
-        FirePosition = GameObject.FindGameObjectWithTag("Fire");
+        
+      
         initialPosition = transform.position;
     }
 
@@ -53,22 +56,43 @@ public class Cube : MonoBehaviour
         transform.position =  Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
     }
 
-    public void MoveToFire() 
+    private void MoveToFire() 
     {
         if (!moveToInitialPosition)
         {
-            Debug.Log("movendo");
+        
             moveToFire = true;
+            isFireState = true;
         }
     }
 
-    public void MoveToInitialPosition()
+    public void HandlerState()
+    {
+        
+        if (!isFireState && !fireCollider.busy)
+        {
+            MoveToFire();
+        }
+        if(isFireState)
+        {
+            MoveToInitialPosition();
+        }
+    }
+
+    private void MoveToInitialPosition()
     {
 
         if (!moveToFire)
         {
             moveToInitialPosition = true;
+            isFireState = false;
         }
+    }
+
+
+    private void OnMouseDown()
+    {
+        HandlerState();
     }
 
 }

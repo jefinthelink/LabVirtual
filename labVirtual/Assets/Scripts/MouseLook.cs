@@ -18,6 +18,7 @@ public class MouseLook : MonoBehaviour
     {
      if(Input.GetKey(KeyCode.Mouse1))
      {
+            //trocar o imput do botão direito do mouse para outro
          Cursor.lockState = CursorLockMode.Locked; 
          Debug.Log("teste");
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
@@ -31,8 +32,13 @@ public class MouseLook : MonoBehaviour
     else
     {
 
-      Cursor.lockState = CursorLockMode.None;   
+      Cursor.lockState = CursorLockMode.None;
+           
     }
 
     }
+
+
+
+
 }
