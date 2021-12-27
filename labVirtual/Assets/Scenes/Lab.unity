@@ -1359,9 +1359,10 @@ GameObject:
   - component: {fileID: 1759118484}
   - component: {fileID: 1759118483}
   - component: {fileID: 1759118482}
+  - component: {fileID: 1759118486}
   - component: {fileID: 1759118481}
   - component: {fileID: 1759118485}
-  - component: {fileID: 1759118486}
+  - component: {fileID: 1759118487}
   m_Layer: 0
   m_Name: RedCube
   m_TagString: Cube
@@ -1477,6 +1478,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &1759118487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759118480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f476b798f23382c42bc9a635c621de83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  temperatureCeucius: 25
+  starttemperature: 0
+  maxTemperatureCeucius: 200
+  constantThatcement: 0.001428
+  constantOfCube: 0.0004761
+  seconds: 0
 --- !u!1 &1771388917 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100008, guid: 977b341be23b1da41ba0964cc5416974,
@@ -2416,9 +2435,10 @@ GameObject:
   - component: {fileID: 2143970075}
   - component: {fileID: 2143970074}
   - component: {fileID: 2143970073}
+  - component: {fileID: 2143970077}
   - component: {fileID: 2143970072}
   - component: {fileID: 2143970076}
-  - component: {fileID: 2143970077}
+  - component: {fileID: 2143970078}
   m_Layer: 0
   m_Name: BlueCube
   m_TagString: Cube
@@ -2534,3 +2554,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &2143970078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143970071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f476b798f23382c42bc9a635c621de83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  temperatureCeucius: 25
+  starttemperature: 0
+  maxTemperatureCeucius: 200
+  constantThatcement: 0.0025
+  constantOfCube: 0.001428
+  seconds: 0

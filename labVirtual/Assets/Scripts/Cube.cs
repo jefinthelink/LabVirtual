@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Cube : MonoBehaviour
 {
@@ -11,6 +9,7 @@ public class Cube : MonoBehaviour
     public bool moveToFire = false;
     public bool moveToInitialPosition = false;
     public bool isFireState = false;
+    private CubeHeating cubeHeating;
 
     private void Start()
     {
@@ -18,9 +17,8 @@ public class Cube : MonoBehaviour
     }
     private void SetValues()
     {
-        
-      
         initialPosition = transform.position;
+        cubeHeating = transform.GetComponent<CubeHeating>();
     }
 
     private void Update()
@@ -36,6 +34,8 @@ public class Cube : MonoBehaviour
             if (transform.position == FirePosition.transform.position)
             {
                 moveToFire = false;
+                cubeHeating.seconds = 0f;
+               
             }
         }
 
@@ -45,6 +45,8 @@ public class Cube : MonoBehaviour
             if (transform.position == initialPosition)
             {
                 moveToInitialPosition = false;
+                cubeHeating.seconds = 0f;
+                
             }
 
         }
@@ -62,7 +64,9 @@ public class Cube : MonoBehaviour
         {
         
             moveToFire = true;
+            cubeHeating.starttemperature = cubeHeating.temperatureCeucius;
             isFireState = true;
+
         }
     }
 
@@ -85,6 +89,7 @@ public class Cube : MonoBehaviour
         if (!moveToFire)
         {
             moveToInitialPosition = true;
+            cubeHeating.starttemperature = cubeHeating.temperatureCeucius;
             isFireState = false;
         }
     }
