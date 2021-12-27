@@ -58,6 +58,6 @@ public class CubeHeating : MonoBehaviour
     private void Cooling()
     {
         Debug.Log("Resfriando");
-        temperatureCeucius = starttemperature + (minTemperatureCeucius - starttemperature) * (1 - (Mathf.Pow(e, (-constantThatcement * seconds))));
+        temperatureCeucius = starttemperature + (minTemperatureCeucius - starttemperature) * (1 - (Mathf.Pow(e, (-constantOfCube * seconds))));
     }
 }
