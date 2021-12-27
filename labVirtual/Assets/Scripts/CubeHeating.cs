@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CubeHeating : MonoBehaviour
 {
@@ -22,9 +20,6 @@ public class CubeHeating : MonoBehaviour
     private void SetValues()
     {
         cube = transform.GetComponent<Cube>();
-        //constantThatcement = Mathf.Pow(constantThatcement, -1);
-        //constantOfCube = Mathf.Pow(constantOfCube, -1);
-        
     }
     private void Update()
     {
