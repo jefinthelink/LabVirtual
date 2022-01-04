@@ -197,6 +197,7 @@ GameObject:
   - component: {fileID: 82241604}
   - component: {fileID: 82241603}
   - component: {fileID: 82241602}
+  - component: {fileID: 82241605}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -251,6 +252,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &82241605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82241601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0db15a0de33f8bb41bd0b557a7146f49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iPT_001: 323
+  iPT_002: 324
 --- !u!1001 &96958802
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -516,9 +531,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0.0045}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 982620831}
-  - {fileID: 1423937643}
-  - {fileID: 834829720}
+  - {fileID: 597048806}
   m_Father: {fileID: 1771388918}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: -13.452001, y: -90.00001, z: 0}
@@ -587,6 +600,44 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &597048805
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 597048806}
+  m_Layer: 0
+  m_Name: ThermometerPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &597048806
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597048805}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.00000004978287}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 982620831}
+  - {fileID: 1423937643}
+  - {fileID: 834829720}
+  m_Father: {fileID: 237697445}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.0000002682209, y: 0.000000078231096}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &704100403
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,6 +883,26 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &812101260 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8115643871766681863, guid: 64e39988d373f5a4dbb02b5a91430830,
+    type: 3}
+  m_PrefabInstance: {fileID: 1012604108}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &812101262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812101260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8203623d6721fe447a59c857b6ccc768, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireCollider: {fileID: 1113745540}
+  psFire: {fileID: 0}
 --- !u!1001 &823923718
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -920,11 +991,11 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 834829719}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0.00000026822093}
+  m_LocalRotation: {x: 0.0000000037252894, y: 1, z: -0.000000007450579, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 237697445}
+  m_Father: {fileID: 597048806}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1177,16 +1248,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982620830}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0.00000026822093}
+  m_LocalRotation: {x: 0.0000000037252894, y: 1, z: -0.000000007450579, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 237697445}
+  m_Father: {fileID: 597048806}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000000040978193, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.00000020489097}
   m_SizeDelta: {x: 0, y: 0.027915254}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &982620832
@@ -1455,6 +1526,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BunsenBurner_Rusted_LQ
       objectReference: {fileID: 0}
+    - target: {fileID: 8115643871766681863, guid: 64e39988d373f5a4dbb02b5a91430830,
+        type: 3}
+      propertyPath: m_TagString
+      value: BunsenBurner
+      objectReference: {fileID: 0}
     - target: {fileID: 8261675022976886275, guid: 64e39988d373f5a4dbb02b5a91430830,
         type: 3}
       propertyPath: m_RootOrder
@@ -1539,7 +1615,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1113745541
 Transform:
   m_ObjectHideFlags: 0
@@ -1626,6 +1702,10 @@ PrefabInstance:
     - target: {fileID: 100008, guid: 977b341be23b1da41ba0964cc5416974, type: 3}
       propertyPath: m_Name
       value: Infrared Thermometer Separado
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 977b341be23b1da41ba0964cc5416974, type: 3}
+      propertyPath: m_TagString
+      value: Thermometer
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 977b341be23b1da41ba0964cc5416974, type: 3}
       propertyPath: m_RootOrder
@@ -1740,16 +1820,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1423937642}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0.00000026822093}
+  m_LocalRotation: {x: 0.0000000037252894, y: 1, z: -0.000000007450579, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 237697445}
+  m_Father: {fileID: 597048806}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0.000000040978193, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0.027915254}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1423937644
@@ -2089,9 +2169,9 @@ MonoBehaviour:
   temperaturetext: {fileID: 1423937644}
   temperatureMaxText: {fileID: 834829721}
   temperatureTypeText: {fileID: 982620832}
+  thermometerPanel: {fileID: 597048805}
   delayOfStartResponse: 0.8
   delayOfSmaplingq: 0.1
-  delayTurnOffAutomatic: 15
   temperatureFahrenheit: 0
   temperatureCeucius: 0
   turnOn: 0
@@ -2107,8 +2187,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.49677685, y: 0.62576693, z: 0.32506987}
-  m_Center: {x: -0.082707494, y: 0.32457778, z: -0.007232696}
+  m_Size: {x: 0.20962326, y: 0.62576693, z: 0.3250699}
+  m_Center: {x: 0.06086952, y: 0.32457778, z: -0.007232689}
 --- !u!1001 &1831368058
 PrefabInstance:
   m_ObjectHideFlags: 0

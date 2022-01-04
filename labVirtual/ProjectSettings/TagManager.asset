@@ -7,6 +7,8 @@ TagManager:
   - Burner
   - Fire
   - Cube
+  - Thermometer
+  - BunsenBurner
   layers:
   - Default
   - TransparentFX

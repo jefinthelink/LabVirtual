@@ -65,7 +65,8 @@ public class Cube : MonoBehaviour
         
             moveToFire = true;
             cubeHeating.starttemperature = cubeHeating.temperatureCeucius;
-            isFireState = true;
+            
+            
 
         }
     }
@@ -90,14 +91,14 @@ public class Cube : MonoBehaviour
         {
             moveToInitialPosition = true;
             cubeHeating.starttemperature = cubeHeating.temperatureCeucius;
-            isFireState = false;
+            
         }
     }
 
 
-    private void OnMouseDown()
-    {
-        HandlerState();
-    }
+    //private void OnMouseDown()
+    //{
+    //    HandlerState();
+    //}
 
 }

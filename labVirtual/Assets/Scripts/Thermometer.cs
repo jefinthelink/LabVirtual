@@ -14,9 +14,10 @@ public class Thermometer : MonoBehaviour
 
     [SerializeField] private GameObject aimThermometer;
     [SerializeField] private TMP_Text temperaturetext, temperatureMaxText, temperatureTypeText;
+    [SerializeField] private GameObject thermometerPanel;
     [SerializeField] private float delayOfStartResponse = 0.8f;
     [SerializeField] private float delayOfSmaplingq = 0.1f;
-    [SerializeField] private float delayTurnOffAutomatic = 15f;
+     private float delayTurnOffAutomatic = 0f;
     private float temperatureMax;
     public float temperatureFahrenheit, temperatureCeucius;
      public bool turnOn = false;
@@ -44,8 +45,27 @@ public class Thermometer : MonoBehaviour
         Move();
         if (turnOn)
         {
+            laser.TurnOnRay();
+            laser.showRay();
             StartCountTemperature();
         }
+        else if(!turnOn && delayTurnOffAutomatic > 0f)
+        {
+            laser.TurnOnRay();
+            laser.showRay();
+            StartCountTemperature();
+            delayTurnOffAutomatic -= Time.deltaTime;
+            if (delayTurnOffAutomatic < 0f)
+            {
+            laser.TurnOfRay();
+            ShowUI(false);
+            }
+        }
+    }
+
+    public void ShowUI(bool value)
+    {
+        thermometerPanel.SetActive(value);   
     }
 
     private void StartCountTemperature()
@@ -60,17 +80,13 @@ public class Thermometer : MonoBehaviour
         }
     }
 
-    private void FinishCountTemperature()
-    {
-        turnOn = false;
-    }
 
     private void CountTemperature()
     {
         RaycastHit hit;
         if (Physics.Raycast(aimThermometer.transform.position, aimThermometer.transform.right, out hit, Mathf.Infinity))
         {
-            laser.showRay(aimThermometer.transform.position,hit.point); 
+            
             if (hit.transform.tag == "Cube")
             {
                 Debug.Log("achou o cubo");
@@ -96,7 +112,10 @@ public class Thermometer : MonoBehaviour
     }
 
 
-    
+    public void ResetDelayTurnOffAutomatic()
+    {
+        delayTurnOffAutomatic = 15f;
+    }
 
     public void ResetTemperatureMax()
     {
@@ -146,7 +165,7 @@ public class Thermometer : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
     }
-    private void HandlerState()
+    public void HandlerState()
     {
         
         if (!useState)
@@ -158,10 +177,10 @@ public class Thermometer : MonoBehaviour
             moveToInitialPosition = true;
         }
     }
-    private void OnMouseDown()
-    {
-        HandlerState();
-    }
+    //private void OnMouseDown()
+    //{
+    //    HandlerState();
+    //}
     #endregion
 
 

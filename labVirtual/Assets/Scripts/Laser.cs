@@ -15,7 +15,13 @@ public class Laser : MonoBehaviour
     public Material material;
 
 
+
     private void Start()
+    {
+        SetValues();
+    }
+
+    private void SetValues()
     {
         lightCollider = new GameObject();
         lightCollider.AddComponent<Light>();
@@ -29,15 +35,39 @@ public class Laser : MonoBehaviour
         lineRenderer.SetColors(color,color);
         lineRenderer.SetWidth(initialWidth,finalWidth);
         lineRenderer.SetVertexCount(2);
-         finalPosition = transform.position + transform.right * distance;
+         finalPosition = transform.position + transform.right * distance;    
     }
 
-    public void showRay(Vector3 initialposition, Vector3 colliderPointer)
+    
+
+    public void showRay()
     {
-
-        lineRenderer.SetPosition(0, initialposition);
-        lineRenderer.SetPosition(1,colliderPointer);
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.right, out hit, Mathf.Infinity))
+        {
+            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(1, hit.point);
+        }
+        else
+        {
+            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(1, finalPosition);
+            
+        }
 
     }
+
+    public void TurnOnRay()
+    {
+        lineRenderer.enabled = true;
+    }
+
+    public void TurnOfRay()
+    {
+        lineRenderer.enabled = false;
+    }
+
+
+
 
 }

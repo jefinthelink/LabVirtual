@@ -10,6 +10,7 @@ public class FireCollider : MonoBehaviour
         if (other.CompareTag("Cube"))
         {
             busy = true;
+            other.GetComponent<Cube>().isFireState = true;
         }
     }
 
@@ -18,6 +19,9 @@ public class FireCollider : MonoBehaviour
         if (other.CompareTag("Cube"))
         {
             busy = false;
+            other.GetComponent<Cube>().isFireState = false;
         }
     }
+
+
 }
