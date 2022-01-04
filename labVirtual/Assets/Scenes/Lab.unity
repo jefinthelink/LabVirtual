@@ -123,6 +123,31 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &15614460 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1750687143056034312, guid: 64e39988d373f5a4dbb02b5a91430830,
+    type: 3}
+  m_PrefabInstance: {fileID: 1012604108}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &15614465
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15614460}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ccdeb665ed3c7e548b28b940c23770cf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &42760788
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5749,6 +5774,7 @@ MonoBehaviour:
   fireCollider: {fileID: 1113745540}
   psFire: {fileID: 227546687}
   psFire2: {fileID: 1329560441}
+  collarAnimator: {fileID: 15614465}
 --- !u!1001 &823923718
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6367,6 +6393,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4136835704534963904, guid: 64e39988d373f5a4dbb02b5a91430830,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4136835704534963904, guid: 64e39988d373f5a4dbb02b5a91430830,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4136835704534963904, guid: 64e39988d373f5a4dbb02b5a91430830,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4136835704534963904, guid: 64e39988d373f5a4dbb02b5a91430830,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8115643871766681863, guid: 64e39988d373f5a4dbb02b5a91430830,
         type: 3}
       propertyPath: m_Name
