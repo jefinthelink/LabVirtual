@@ -10,14 +10,12 @@ public class BunsenBurner : MonoBehaviour
     [SerializeField] private Animator collarAnimator;
     [SerializeField] private float delayToChange = 3.0f;
     private float delayToChangeAux;
-
     private bool turnOnFire = false, canBeChange = true;
 
     private void Start()
     {
         SetValues();
     }
-
     private void SetValues()
     {
         delayToChangeAux = delayToChange;
@@ -34,13 +32,12 @@ public class BunsenBurner : MonoBehaviour
             }
         }
     }
-
     public void HandleTurnOnFire()
     {
         if (turnOnFire && canBeChange)
         {
+            //apagando
             canBeChange = false;
-            Debug.Log("apagando");
             turnOnFire = false;
             collarAnimator.SetBool("TurnOn", false);
             collarAnimator.SetBool("TurnOf", true);
@@ -50,8 +47,8 @@ public class BunsenBurner : MonoBehaviour
         }
         else if (!turnOnFire && canBeChange) 
         {
+            //acendendo
             canBeChange = false;
-            Debug.Log("acendendo");
             turnOnFire = true;
             collarAnimator.SetBool("TurnOn", true);
             collarAnimator.SetBool("TurnOf", false);

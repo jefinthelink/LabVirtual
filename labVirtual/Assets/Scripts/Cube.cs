@@ -2,15 +2,22 @@
 
 public class Cube : MonoBehaviour
 {
+    #region variaveis
+    [Header("posição do fogo")]
     public GameObject FirePosition;
+    [Header("colisor do fogo")]
     public FireCollider fireCollider;
-    private Vector3 initialPosition;
+    [Header("velocidade de movimento")]
     [SerializeField] private float speed = 1.0f; 
-    public bool moveToFire = false;
-    public bool moveToInitialPosition = false;
-    public bool isFireState = false;
+    [HideInInspector] public bool moveToFire = false;
+    [HideInInspector] public bool moveToInitialPosition = false;
+    [HideInInspector]public bool isFireState = false;
+    private Vector3 initialPosition;
     private CubeHeating cubeHeating;
 
+    #endregion
+
+    #region Metodos
     private void Start()
     {
         SetValues();
@@ -20,12 +27,10 @@ public class Cube : MonoBehaviour
         initialPosition = transform.position;
         cubeHeating = transform.GetComponent<CubeHeating>();
     }
-
     private void Update()
     {
         Move();
     }
-
     private void Move()
     {
         if (moveToFire)
@@ -52,12 +57,10 @@ public class Cube : MonoBehaviour
         }
 
     }
-
     private void MoveWards(Vector3 target)
     {
         transform.position =  Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
     }
-
     private void MoveToFire() 
     {
         if (!moveToInitialPosition)
@@ -70,7 +73,6 @@ public class Cube : MonoBehaviour
 
         }
     }
-
     public void HandlerState()
     {
         
@@ -83,7 +85,6 @@ public class Cube : MonoBehaviour
             MoveToInitialPosition();
         }
     }
-
     private void MoveToInitialPosition()
     {
 
@@ -94,11 +95,5 @@ public class Cube : MonoBehaviour
             
         }
     }
-
-
-    //private void OnMouseDown()
-    //{
-    //    HandlerState();
-    //}
-
+    #endregion
 }

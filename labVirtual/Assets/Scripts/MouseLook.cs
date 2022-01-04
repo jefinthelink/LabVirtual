@@ -1,24 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
+    #region variaveis
+    [Header("Sensibilidade do mouse")]
     [SerializeField] private float mouseSensitivity = 100f;
+    [Header("corpo do player")]
     [SerializeField] private Transform playerBody;
-
     private float xRotation = 0f;
-    void Start()
-    {
-      
-    }
-
-   
+    #endregion
+    #region metodos
     void Update()
     {
-     
-     
-            //trocar o imput do botão direito do mouse para outro
+        Rotation();
+    }
+
+    private void Rotation()
+    {
          Cursor.lockState = CursorLockMode.Confined; 
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
@@ -26,17 +24,7 @@ public class MouseLook : MonoBehaviour
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation,-90f,90f);
         transform.localRotation = Quaternion.Euler(xRotation,0f,0f);
-        playerBody.Rotate(Vector3.up * mouseX);
-   
-   
-
-     // Cursor.lockState = CursorLockMode.None;
-           
-    
-
+        playerBody.Rotate(Vector3.up * mouseX);    
     }
-
-
-
-
+    #endregion
 }
