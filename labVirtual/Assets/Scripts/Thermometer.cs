@@ -25,6 +25,7 @@ public class Thermometer : MonoBehaviour
     private bool pressTrigger = false;
     public modesOfThermometer modes;
     private Laser laser;
+    
 
 
 
@@ -87,7 +88,7 @@ public class Thermometer : MonoBehaviour
             
             if (hit.transform.tag == "Cube")
             {
-               
+                Missions.instance.MissionThermometer();
                 if (modes == modesOfThermometer.ceucius)
                 {
                     temperatureCeucius = hit.transform.GetComponent<CubeHeating>().temperatureCeucius;

@@ -22,6 +22,7 @@ public class Stopwatch : MonoBehaviour
 public void StartCount()
 {
 canCountTime = true;
+ Missions.instance.MissionStopwatch();
 }
 
 private void CountTime()

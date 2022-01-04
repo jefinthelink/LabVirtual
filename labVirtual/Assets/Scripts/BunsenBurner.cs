@@ -8,17 +8,38 @@ public class BunsenBurner : MonoBehaviour
     [SerializeField] private GameObject fireCollider;
     [SerializeField] private ParticleSystem psFire, psFire2;
     [SerializeField] private Animator collarAnimator;
-    private bool turnOnFire = false;
-   
+    [SerializeField] private float delayToChange = 3.0f;
+    private float delayToChangeAux;
+
+    private bool turnOnFire = false, canBeChange = true;
+
     private void Start()
     {
-
-        
+        SetValues();
     }
+
+    private void SetValues()
+    {
+        delayToChangeAux = delayToChange;
+    }
+    private void Update()
+    {
+        if (!canBeChange)
+        {
+            delayToChange -= Time.deltaTime;
+            if (delayToChange <= 0f)
+            {
+                canBeChange = true;
+                delayToChange = delayToChangeAux;
+            }
+        }
+    }
+
     public void HandleTurnOnFire()
     {
-        if (turnOnFire)
+        if (turnOnFire && canBeChange)
         {
+            canBeChange = false;
             Debug.Log("apagando");
             turnOnFire = false;
             collarAnimator.SetBool("TurnOn", false);
@@ -27,8 +48,9 @@ public class BunsenBurner : MonoBehaviour
             psFire.Stop();
             psFire2.Stop();
         }
-        else
+        else if (!turnOnFire && canBeChange) 
         {
+            canBeChange = false;
             Debug.Log("acendendo");
             turnOnFire = true;
             collarAnimator.SetBool("TurnOn", true);
