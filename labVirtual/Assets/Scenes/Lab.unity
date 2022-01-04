@@ -387,13 +387,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 153489443}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 7.252233, y: 0.796, z: -5.3598}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 7.252233, y: 0.696, z: -5.3598}
+  m_LocalScale: {x: 0.56178844, y: 0.56178844, z: 0.56178844}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &234306420
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,6 +1028,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 834829719}
   m_CullTransparentMesh: 0
+--- !u!1 &895612634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 895612635}
+  - component: {fileID: 895612636}
+  m_Layer: 0
+  m_Name: Aim
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &895612635
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895612634}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.1908, y: 0.5062, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1771388918}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &895612636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895612634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98b29e8e41c456746a0b72514bed8edc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 1, g: 0, b: 0, a: 1}
+  distance: 50
+  initialWidth: 0.005
+  finalWidth: 0.005
+  material: {fileID: 2100000, guid: 63b7ba5e75be47a47825101b357852f2, type: 2}
 --- !u!4 &921640883 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400004, guid: f181098188f3c704fae370cd38298287,
@@ -1916,7 +1964,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 63b7ba5e75be47a47825101b357852f2, type: 2}
+  - {fileID: 2100000, guid: ce70369f7dabc1b48ab17abcd325638b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2037,6 +2085,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   ThermometerPosition: {fileID: 153489444}
+  aimThermometer: {fileID: 895612634}
+  temperaturetext: {fileID: 1423937644}
+  temperatureMaxText: {fileID: 834829721}
+  temperatureTypeText: {fileID: 982620832}
+  delayOfStartResponse: 0.8
+  delayOfSmaplingq: 0.1
+  delayTurnOffAutomatic: 15
+  temperatureFahrenheit: 0
+  temperatureCeucius: 0
+  turnOn: 0
+  modes: 0
 --- !u!65 &1771388920
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -1,5 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class Thermometer : MonoBehaviour
 {
@@ -16,11 +18,12 @@ public class Thermometer : MonoBehaviour
     [SerializeField] private float delayOfSmaplingq = 0.1f;
     [SerializeField] private float delayTurnOffAutomatic = 15f;
     private float temperatureMax;
-    private float temperatureFahrenheit, temperatureCeucius;
-    [HideInInspector] public bool turnOn = false;
+    public float temperatureFahrenheit, temperatureCeucius;
+     public bool turnOn = false;
     private bool delayToSTart = true;
     private bool pressTrigger = false;
     public modesOfThermometer modes;
+    private Laser laser;
 
 
 
@@ -34,11 +37,12 @@ public class Thermometer : MonoBehaviour
     private void SetValues()
     {
         initialPosition = transform.position;
+        laser = aimThermometer.GetComponent<Laser>();
     }
     private void Update()
     {
         Move();
-        if (turnOn && delayToSTart)
+        if (turnOn)
         {
             StartCountTemperature();
         }
@@ -51,7 +55,7 @@ public class Thermometer : MonoBehaviour
         if (delayOfStartResponse <= 0f)
         {
             delayOfStartResponse = 0.9f;
-            delayToSTart = false;
+            //delayToSTart = false;
             CountTemperature();
         }
     }
@@ -63,26 +67,38 @@ public class Thermometer : MonoBehaviour
 
     private void CountTemperature()
     {
-        //fazer um raycast
-        ShowHay();
-        if (modes == modesOfThermometer.ceucius)
+        RaycastHit hit;
+        if (Physics.Raycast(aimThermometer.transform.position, aimThermometer.transform.right, out hit, Mathf.Infinity))
         {
-            //retornar valor em ceucius
+            laser.showRay(aimThermometer.transform.position,hit.point); 
+            if (hit.transform.tag == "Cube")
+            {
+                Debug.Log("achou o cubo");
+                if (modes == modesOfThermometer.ceucius)
+                {
+                    temperatureCeucius = hit.transform.GetComponent<CubeHeating>().temperatureCeucius;
+                    ShowValueInText(temperatureCeucius,temperatureMax,"C");
+                }
+                else if (modes == modesOfThermometer.fahrenheit)
+                {
+                    temperatureFahrenheit = convertToFahrenheit(hit.transform.GetComponent<CubeHeating>().temperatureCeucius);
+                    ShowValueInText(temperatureFahrenheit, temperatureMax, "F");
+                }
+            }
+            else
+            {
+                Debug.Log("não achou o cubo");
+            }
         }
-        else if (modes == modesOfThermometer.fahrenheit)
-        {
-            convertToFahrenheit(temperatureCeucius);
+        
+       // ShowHay();
 
-        }
     }
 
 
-    private void ShowHay()
-    {
-        Debug.DrawRay(aimThermometer.transform.position,Vector3.right,Color.red);
-    }
+    
 
-    private void ResetTemperatureMax()
+    public void ResetTemperatureMax()
     {
         temperatureMax = 0.0f;
         if (modes == modesOfThermometer.ceucius)
