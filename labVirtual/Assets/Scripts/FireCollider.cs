@@ -5,12 +5,14 @@ using UnityEngine;
 public class FireCollider : MonoBehaviour
 {
     public bool busy = false;
+    public Cube cube;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Cube"))
         {
             busy = true;
-            other.GetComponent<Cube>().isFireState = true;
+            cube = other.GetComponent<Cube>();
+           
         }
     }
 
@@ -19,9 +21,31 @@ public class FireCollider : MonoBehaviour
         if (other.CompareTag("Cube"))
         {
             busy = false;
-            other.GetComponent<Cube>().isFireState = false;
+           cube.isFireState = false;
         }
     }
 
+    public void BurnCube()
+    {
+        if (!cube)
+        {
+            return;
+        }
+        else
+        {
+        cube.isFireState = true;
+        }
+    }
+    public void DoNotBurnCube()
+    {
+        if (!cube)
+        {
+            return;
+        }
+        else
+        {
+            cube.isFireState = false;
+        }
+    }
 
 }

@@ -18,15 +18,15 @@ public class PointerClick : MonoBehaviour
         {
             if (hit.transform.tag == "Cube")
             {
-                Debug.Log("achou o cubo");
                 if (Input.GetKeyDown(iPT_001))
                 {
+                Debug.Log("achou o cubo");
                 hit.transform.gameObject.GetComponent<Cube>().HandlerState();
                 }
             }
             if (hit.transform.tag == "Thermometer")
             {
-                Debug.Log("achou o termometro");
+
                 if (Input.GetKeyDown(iPT_001))
                 {
                     hit.transform.gameObject.GetComponent<Thermometer>().HandlerState();

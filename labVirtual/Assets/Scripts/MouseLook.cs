@@ -20,7 +20,6 @@ public class MouseLook : MonoBehaviour
      
             //trocar o imput do botão direito do mouse para outro
          Cursor.lockState = CursorLockMode.Confined; 
-         Debug.Log("teste");
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 

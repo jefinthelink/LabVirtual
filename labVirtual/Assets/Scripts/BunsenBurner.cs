@@ -6,21 +6,25 @@ public class BunsenBurner : MonoBehaviour
 {
 
     [SerializeField] private GameObject fireCollider;
-    [SerializeField] private ParticleSystem psFire;
+    [SerializeField] private ParticleSystem psFire, psFire2;
     private bool turnOnFire = false;
     public void HandleTurnOnFire()
     {
         if (turnOnFire)
         {
             turnOnFire = false;
-            fireCollider.SetActive(false);
-           // psFire.Stop();
+
+            fireCollider.GetComponent<FireCollider>().DoNotBurnCube();
+            psFire.Stop();
+            psFire2.Stop();
         }
         else
         {
             turnOnFire = true;
-            fireCollider.SetActive(true);
-            // psFire.Play();
+            
+            fireCollider.GetComponent<FireCollider>().BurnCube();
+             psFire.Play();
+            psFire2.Play();
         }
     }
 }

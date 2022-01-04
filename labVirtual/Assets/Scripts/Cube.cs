@@ -78,7 +78,7 @@ public class Cube : MonoBehaviour
         {
             MoveToFire();
         }
-        if(isFireState)
+        if(transform.position == FirePosition.transform.position)
         {
             MoveToInitialPosition();
         }
