@@ -42,12 +42,34 @@ public class PointerClick : MonoBehaviour
                     hit.transform.gameObject.GetComponent<Thermometer>().turnOn = false;
                 }
             }
-            
             if (hit.transform.tag == "BunsenBurner")
             {
                 if (Input.GetKeyDown(iPT_001))
                 {
                     hit.transform.GetComponent<BunsenBurner>().HandleTurnOnFire();
+                }
+            }
+            if (hit.transform.tag == "Button1")
+            {
+                if (Input.GetKeyDown(iPT_001))
+                {
+                    hit.transform.GetComponentInParent<Thermometer>().modes = modesOfThermometer.ceucius;
+                  
+                }
+            }
+            if (hit.transform.tag == "Button2")
+            {
+                if (Input.GetKeyDown(iPT_001))
+                {
+                hit.transform.GetComponentInParent<Thermometer>().ResetTemperatureMax();
+                }
+            }
+            if (hit.transform.tag == "Button3")
+            {
+                if (Input.GetKeyDown(iPT_001))
+                {
+                hit.transform.GetComponentInParent<Thermometer>().modes = modesOfThermometer.fahrenheit;
+                 
                 }
             }
 

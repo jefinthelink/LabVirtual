@@ -18,7 +18,7 @@ public class Thermometer : MonoBehaviour
     [SerializeField] private float delayOfStartResponse = 0.8f;
     [SerializeField] private float delayOfSmaplingq = 0.1f;
      private float delayTurnOffAutomatic = 0f;
-    private float temperatureMax;
+    public float temperatureMax;
     public float temperatureFahrenheit, temperatureCeucius;
      public bool turnOn = false;
     private bool delayToSTart = true;
@@ -79,8 +79,6 @@ public class Thermometer : MonoBehaviour
             CountTemperature();
         }
     }
-
-
     private void CountTemperature()
     {
         RaycastHit hit;
@@ -89,34 +87,65 @@ public class Thermometer : MonoBehaviour
             
             if (hit.transform.tag == "Cube")
             {
-                Debug.Log("achou o cubo");
+               
                 if (modes == modesOfThermometer.ceucius)
                 {
                     temperatureCeucius = hit.transform.GetComponent<CubeHeating>().temperatureCeucius;
+                    
+                    if (temperatureMax < temperatureCeucius)
+                    {
+                        temperatureMax = temperatureCeucius;
+                    }
+
+
+                    // erro de mais ou menos 2% na medição
+                    float percentagem = (temperatureCeucius / 100) * 2;
+                    if (Random.Range(-1f, 1f) > 0)
+                    {
+                        temperatureCeucius = temperatureCeucius + percentagem;
+                    }
+                    else
+                    {
+                        temperatureCeucius = temperatureCeucius - percentagem;
+                    }
+
+
+
                     ShowValueInText(temperatureCeucius,temperatureMax,"C");
                 }
                 else if (modes == modesOfThermometer.fahrenheit)
                 {
-                    temperatureFahrenheit = convertToFahrenheit(hit.transform.GetComponent<CubeHeating>().temperatureCeucius);
+                   
+                    temperatureCeucius = hit.transform.GetComponent<CubeHeating>().temperatureCeucius;
+
+                    if (temperatureMax < temperatureCeucius)
+                    {
+                        temperatureMax = temperatureCeucius;
+                    }
+
+                    // erro de mais ou menos 2% na medição
+                    float percentagem = (convertToFahrenheit(temperatureCeucius)/100) * 2;
+                    if (Random.Range(-1f, 1f) >0)
+                    {
+                    temperatureFahrenheit = convertToFahrenheit(temperatureCeucius) + percentagem;
+                    }
+                    else
+                    {
+                        temperatureFahrenheit = convertToFahrenheit(temperatureCeucius) - percentagem; 
+                    }
+                    
+                    
                     ShowValueInText(temperatureFahrenheit, temperatureMax, "F");
                 }
             }
-            else
-            {
-                Debug.Log("não achou o cubo");
-            }
+      
         }
         
-       // ShowHay();
-
     }
-
-
     public void ResetDelayTurnOffAutomatic()
     {
         delayTurnOffAutomatic = 15f;
     }
-
     public void ResetTemperatureMax()
     {
         temperatureMax = 0.0f;
@@ -124,17 +153,29 @@ public class Thermometer : MonoBehaviour
         {
             ShowValueInText(temperatureCeucius,temperatureMax,"HOLD C");
         }
+        if (modes == modesOfThermometer.fahrenheit)
+        {
+            ShowValueInText(temperatureFahrenheit, temperatureMax, "HOLD C");
+        }
     }
     private void ShowValueInText(float temperature, float maxTemperature, string typeOfTemperature) 
     {
-        temperatureMaxText.text = maxTemperature.ToString("f");
-        temperaturetext.text = temperature.ToString("f");
-        temperatureTypeText.text = typeOfTemperature;
+        temperatureMaxText.text = "Max " + System.Math.Round(maxTemperature,1) + " C";
+        temperaturetext.text = System.Math.Round(temperature,1).ToString();
+        temperatureTypeText.text = "HOLD" +typeOfTemperature;
     }
     private float convertToFahrenheit(float temperatureToConvert)
     {
-        return temperatureToConvert = (temperatureCeucius * 9 / 5) + 32;
+        return  (temperatureToConvert * 9 / 5) + 32;
     }
+
+    private float ConvertToCeucius(float temperatureToConvert)
+    {
+        return (temperatureToConvert - 32) * (5 / 9); 
+    }
+
+
+
 
     #region MOVIMENT
     private void Move()

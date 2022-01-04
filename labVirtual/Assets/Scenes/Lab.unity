@@ -5393,7 +5393,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &597048806
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5494,6 +5494,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &727560762 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100004, guid: 977b341be23b1da41ba0964cc5416974,
+    type: 3}
+  m_PrefabInstance: {fileID: 1290678998}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &727560766
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727560762}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.008963728, y: 0.039113786, z: 0.038719356}
+  m_Center: {x: -0.11965017, y: 0.050337568, z: -0.0702323}
 --- !u!1001 &768937286
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5971,6 +5990,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 834829719}
   m_CullTransparentMesh: 0
+--- !u!1 &852541096 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100006, guid: 977b341be23b1da41ba0964cc5416974,
+    type: 3}
+  m_PrefabInstance: {fileID: 1290678998}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &852541100
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852541096}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.008941459, y: 0.048074055, z: 0.036207125}
+  m_Center: {x: -0.11967745, y: 0.05793436, z: -0.10782651}
 --- !u!1 &895612634
 GameObject:
   m_ObjectHideFlags: 0
@@ -6549,6 +6587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   busy: 0
   cube: {fileID: 0}
+  burnCubeBool: 0
 --- !u!1 &1184224393
 GameObject:
   m_ObjectHideFlags: 0
@@ -6592,6 +6631,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 100002, guid: 977b341be23b1da41ba0964cc5416974, type: 3}
+      propertyPath: m_TagString
+      value: Button1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 977b341be23b1da41ba0964cc5416974, type: 3}
+      propertyPath: m_TagString
+      value: Button2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 977b341be23b1da41ba0964cc5416974, type: 3}
+      propertyPath: m_TagString
+      value: Button3
+      objectReference: {fileID: 0}
     - target: {fileID: 100008, guid: 977b341be23b1da41ba0964cc5416974, type: 3}
       propertyPath: m_Name
       value: Infrared Thermometer Separado
@@ -11441,6 +11492,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1357771399 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: 977b341be23b1da41ba0964cc5416974,
+    type: 3}
+  m_PrefabInstance: {fileID: 1290678998}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1357771403
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357771399}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.008941459, y: 0.04807407, z: 0.03620712}
+  m_Center: {x: -0.11967745, y: 0.05793436, z: -0.032638106}
 --- !u!1 &1423937642
 GameObject:
   m_ObjectHideFlags: 0
@@ -11818,6 +11888,7 @@ MonoBehaviour:
   thermometerPanel: {fileID: 597048805}
   delayOfStartResponse: 0.8
   delayOfSmaplingq: 0.1
+  temperatureMax: 0
   temperatureFahrenheit: 0
   temperatureCeucius: 0
   turnOn: 0

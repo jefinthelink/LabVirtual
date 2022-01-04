@@ -46,6 +46,7 @@ public class CubeHeating : MonoBehaviour
     }
     private void Heating()
     {
+        Debug.Log("queimando");
         temperatureCeucius = starttemperature + (maxTemperatureCeucius - starttemperature) * (1 - (Mathf.Pow(e, (-constantThatcement * seconds))));
     }
 

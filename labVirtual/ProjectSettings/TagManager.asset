@@ -9,6 +9,9 @@ TagManager:
   - Cube
   - Thermometer
   - BunsenBurner
+  - Button1
+  - Button2
+  - Button3
   layers:
   - Default
   - TransparentFX

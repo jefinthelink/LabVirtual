@@ -9,7 +9,7 @@ public class BunsenBurner : MonoBehaviour
     [SerializeField] private ParticleSystem psFire, psFire2;
     [SerializeField] private Animator collarAnimator;
     private bool turnOnFire = false;
-    private Vector3 initialRotationCollar, finalRotateCollar;
+   
     private void Start()
     {
 
@@ -19,7 +19,7 @@ public class BunsenBurner : MonoBehaviour
     {
         if (turnOnFire)
         {
-            Debug.Log("acendendo");
+            Debug.Log("apagando");
             turnOnFire = false;
             collarAnimator.SetBool("TurnOn", false);
             collarAnimator.SetBool("TurnOf", true);
@@ -29,11 +29,12 @@ public class BunsenBurner : MonoBehaviour
         }
         else
         {
-            Debug.Log("apagando");
+            Debug.Log("acendendo");
             turnOnFire = true;
             collarAnimator.SetBool("TurnOn", true);
             collarAnimator.SetBool("TurnOf", false);
             fireCollider.GetComponent<FireCollider>().BurnCube();
+            fireCollider.GetComponent<FireCollider>().burnCubeBool = true;
              psFire.Play();
             psFire2.Play();
         }
