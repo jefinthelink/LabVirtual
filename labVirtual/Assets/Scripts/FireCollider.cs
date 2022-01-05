@@ -1,12 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FireCollider : MonoBehaviour
 {
+    #region Variaveis
     public bool busy = false;
     public Cube cube;
     [HideInInspector] public bool burnCubeBool = false;
+    #endregion
+    #region Metodos
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Cube"))
@@ -19,9 +20,6 @@ public class FireCollider : MonoBehaviour
             }
         }
     }
-
-   
-
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Cube"))
@@ -30,7 +28,6 @@ public class FireCollider : MonoBehaviour
            cube.isFireState = false;
         }
     }
-
     public void BurnCube()
     {
         if (!cube)
@@ -53,5 +50,5 @@ public class FireCollider : MonoBehaviour
             cube.isFireState = false;
         }
     }
-
+    #endregion
 }

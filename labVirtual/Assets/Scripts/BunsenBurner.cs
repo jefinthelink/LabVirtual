@@ -1,17 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BunsenBurner : MonoBehaviour
 {
-
+    #region Variaveis
+    [Header("colisor")]
     [SerializeField] private GameObject fireCollider;
+    [Header("particulas")]
     [SerializeField] private ParticleSystem psFire, psFire2;
+    [Header("animator")]
     [SerializeField] private Animator collarAnimator;
+    [Header("tempo de mudança")]
     [SerializeField] private float delayToChange = 3.0f;
     private float delayToChangeAux;
     private bool turnOnFire = false, canBeChange = true;
-
+    #endregion
+    #region Metodos
     private void Start()
     {
         SetValues();
@@ -58,4 +61,5 @@ public class BunsenBurner : MonoBehaviour
             psFire2.Play();
         }
     }
+    #endregion
 }

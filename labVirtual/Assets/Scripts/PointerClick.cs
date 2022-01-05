@@ -1,11 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PointerClick : MonoBehaviour
 {
+    #region Variaveis
+    [Header("Inputs do jogador")]
     [SerializeField] private KeyCode iPT_001 = KeyCode.Mouse0;
     [SerializeField] private KeyCode iPT_002 = KeyCode.Mouse1;
+    #endregion
+    #region Metodos
     private void Update()
     {
         Raycast();
@@ -75,4 +77,5 @@ public class PointerClick : MonoBehaviour
 
         }
     }
+    #endregion
 }

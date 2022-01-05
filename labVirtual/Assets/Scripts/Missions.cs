@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Missions : MonoBehaviour
 {
+    #region Variaveis
     public static Missions instance;
+    [Header("textos das missões")]
     [SerializeField] private TMP_Text textMissionMoviment;
     [HideInInspector] public bool missionMovimentBool = false;
     private bool w;
@@ -16,7 +18,8 @@ public class Missions : MonoBehaviour
     [HideInInspector] public bool missionStopwatch = false;
     [SerializeField] private TMP_Text textMissionThermometer;
     [HideInInspector] public bool missionThermometer = false;
-
+    #endregion
+    #region Metodos
     private void Awake()
     {
         if (!instance)
@@ -28,7 +31,6 @@ public class Missions : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
     private void Update()
     {
         MissionMove();
@@ -61,7 +63,6 @@ public class Missions : MonoBehaviour
         }
         
     }
-
     public void MissionStopwatch()
     {
         missionStopwatch = true;
@@ -72,5 +73,5 @@ public class Missions : MonoBehaviour
         missionThermometer = true;
         textMissionThermometer.text = "Concluido";
     }
-
+    #endregion
 }

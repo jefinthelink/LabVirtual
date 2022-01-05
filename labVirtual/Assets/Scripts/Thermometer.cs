@@ -1,41 +1,40 @@
 ﻿using TMPro;
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+
 
 public class Thermometer : MonoBehaviour
 {
+    #region Variaveis
+    [Header("variaveis de movimentação")]
     [SerializeField] private float speed = 1.0f;
-    private Vector3 initialPosition;
     [SerializeField] private Transform ThermometerPosition;
+    private Vector3 initialPosition;
     private bool moveToThermometerPosition = false;
     private bool moveToInitialPosition = false;
     private bool useState = false;
 
+    [Header("variaveis de medição")]
+    [Header("modos do termometro")]
+    public modesOfThermometer modes;
     [SerializeField] private GameObject aimThermometer;
+    [Header("componentes do canvas")]
     [SerializeField] private TMP_Text temperaturetext, temperatureMaxText, temperatureTypeText;
     [SerializeField] private GameObject thermometerPanel;
+    [Header("atrasos programados")]
     [SerializeField] private float delayOfStartResponse = 0.8f;
     [SerializeField] private float delayOfSmaplingq = 0.1f;
-     private float delayTurnOffAutomatic = 0f;
+    private float delayTurnOffAutomatic = 0f;
+    [Header("temperaturas")]
     public float temperatureMax;
     public float temperatureFahrenheit, temperatureCeucius;
-     public bool turnOn = false;
-    private bool delayToSTart = true;
-    private bool pressTrigger = false;
-    public modesOfThermometer modes;
+    public bool turnOn = false;
     private Laser laser;
-    
-
-
-
-
-
+    #endregion
+    #region Metodos
     void Start()
     {
         SetValues();    
     }
-
     private void SetValues()
     {
         initialPosition = transform.position;
@@ -63,12 +62,11 @@ public class Thermometer : MonoBehaviour
             }
         }
     }
-
+    #region Thermometer
     public void ShowUI(bool value)
     {
         thermometerPanel.SetActive(value);   
     }
-
     private void StartCountTemperature()
     {
         
@@ -76,7 +74,6 @@ public class Thermometer : MonoBehaviour
         if (delayOfStartResponse <= 0f)
         {
             delayOfStartResponse = 0.9f;
-            //delayToSTart = false;
             CountTemperature();
         }
     }
@@ -169,15 +166,11 @@ public class Thermometer : MonoBehaviour
     {
         return  (temperatureToConvert * 9 / 5) + 32;
     }
-
     private float ConvertToCeucius(float temperatureToConvert)
     {
         return (temperatureToConvert - 32) * (5 / 9); 
     }
-
-
-
-
+    #endregion
     #region MOVIMENT
     private void Move()
     {
@@ -224,7 +217,7 @@ public class Thermometer : MonoBehaviour
     //    HandlerState();
     //}
     #endregion
-
+    #endregion
 
 }
 
